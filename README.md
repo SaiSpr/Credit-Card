@@ -29,18 +29,5 @@ In this project 2 different classification algorithms were tested namely:
 - Random Forest
 
 
-
-## Preview
-
-### API Demo
-![api](https://user-images.githubusercontent.com/101701760/174500152-c6256170-5c8e-42dd-b5e7-4a01c805ab99.gif)
-
-
-### Streamlit App Demo
-
-
-![credit](https://user-images.githubusercontent.com/101701760/174500101-d70e5ec1-bb50-4a67-be13-1cb561c9ed11.gif)
-
-
 Credits:
 Ifeanyi Nneji
