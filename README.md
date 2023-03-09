@@ -21,12 +21,7 @@ Publicly accessible datasets on financial services are scarce, particularly in t
 
 A synthetic dataset generated using the simulator called PaySim was used as the dataset for building the model used in this project. PaySim uses aggregated data from the private dataset to generate a synthetic dataset that resembles the normal operation of transactions and injects malicious behaviour to later evaluate the performance of fraud detection methods.
 
-[Dataset Link](https://www.kaggle.com/datasets/ealaxi/paysim1v)
 
-### Modelling
-In this project 2 different classification algorithms were tested namely:
-
-- Random Forest
 
 
 Credits:
