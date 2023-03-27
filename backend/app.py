@@ -30,18 +30,8 @@ favicon_path = 'favicon.png'
 @app.get('/favicon.png', include_in_schema=False)
 async def favicon():
     return FileResponse(favicon_path)
-																	
-class fraudDetection(BaseModel):
-    step:int
-    types:int
-    amount:float	
-    oldbalanceorig:float	
-    newbalanceorig:float	
-    oldbalancedest:float	
-    newbalancedest:float	
-    isflaggedfraud:float
 
-	
+
 #import dataframe of test customer data
 
 df_test_prod = pd.read_csv('df_test_ok_prod_100_V7.csv', index_col=[0])
@@ -51,6 +41,49 @@ df_test_prod.drop(columns=['TARGET'], inplace=True)
 df_test_prod_request  = df_test_prod.set_index('SK_ID_CURR')
 # Création list des clients 
 clients_id = df_test_prod["SK_ID_CURR"].tolist() 
+
+
+
+class fraudDetection(BaseModel):
+	
+    oldbalanceorig:int	
+
+
+@app.post('/predict')
+def predict(data : fraudDetection):
+                                                                                                                                                                                                                                
+    id = np.array([data.oldbalanceorig])
+#     model = joblib.load('credit_fraud.pkl')
+
+#     predictions = model.predict(features)
+#     if predictions == 1:
+#         return {"fraudulent"}
+#     elif predictions == 0:
+#         return {"not fraudulent"}
+    
+    if id not in clients_id:
+	raise HTTPException(status_code=404, detail="client's id not found")
+
+    else:
+
+	pipe_prod = joblib.load('LGBM_pipe_version7.pkl')
+
+	values_id_client = df_test_prod_request.loc[[id]]
+
+	# Définir le best threshold
+	prob_preds = pipe_prod.predict_proba(values_id_client)
+
+	#Fast_API_prob_preds
+	threshold = 0.332# definir threshold ici
+	y_test_prob = [1 if prob_preds[i][1]> threshold else 0 for i in range(len(prob_preds))]
+
+
+	return {
+		"prediction": y_test_prob[0],
+		"probability_0" : prob_preds[0][0],
+		"probability_1" : prob_preds[0][1],}
+	
+
 
 
 
@@ -72,30 +105,30 @@ async def get_json_data():
 
 
 
-@app.post('/predict')
-async def function_predict_LGBM(id: int):
+# @app.post('/predict')
+# async def function_predict_LGBM(id: int):
                                                                                                                                                                                                                                 
 
-#     id = 410971	
-    if id not in clients_id:
-        raise HTTPException(status_code=404, detail="client's id not found")
+# #     id = 410971	
+#     if id not in clients_id:
+#         raise HTTPException(status_code=404, detail="client's id not found")
     
-    else:
+#     else:
         
         
-        pipe_prod = joblib.load('LGBM_pipe_version7.pkl')
+#         pipe_prod = joblib.load('LGBM_pipe_version7.pkl')
     
-        values_id_client = df_test_prod_request.loc[[id]]
+#         values_id_client = df_test_prod_request.loc[[id]]
        
-        # Définir le best threshold
-        prob_preds = pipe_prod.predict_proba(values_id_client)
+#         # Définir le best threshold
+#         prob_preds = pipe_prod.predict_proba(values_id_client)
         
-        #Fast_API_prob_preds
-        threshold = 0.332# definir threshold ici
-        y_test_prob = [1 if prob_preds[i][1]> threshold else 0 for i in range(len(prob_preds))]
+#         #Fast_API_prob_preds
+#         threshold = 0.332# definir threshold ici
+#         y_test_prob = [1 if prob_preds[i][1]> threshold else 0 for i in range(len(prob_preds))]
         
        
-        return {
-            "prediction": y_test_prob[0],
-            "probability_0" : prob_preds[0][0],
-            "probability_1" : prob_preds[0][1],}
+#         return {
+#             "prediction": y_test_prob[0],
+#             "probability_0" : prob_preds[0][0],
+#             "probability_1" : prob_preds[0][1],}
