@@ -53,6 +53,16 @@ df_test_prod_request  = df_test_prod.set_index('SK_ID_CURR')
 clients_id = df_test_prod["SK_ID_CURR"].tolist() 
 
 
+
+
+@app.post("/channel")
+async def process_data(name: str, age: int, email: str):
+    # do something with the data
+    return {"message": "Data received and processed"}
+
+
+
+
 @app.post('/predict')
 async def function_predict_LGBM(id: int):
                                                                                                                                                                                                                                 
