@@ -216,3 +216,32 @@ if st.button("Detection Result"):
                 }
             ],
         }
+
+      st_echarts(options=option_1, width="100%", key=0)
+      st.header(f'*Les données qui ont le plus influencé le calcul de la prédiction pour le client {client_id}*')
+
+      explain_plot(client_id, pred)
+    else:
+        st.success('Crédit Accordé')
+        option = {
+            "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
+            "series": [
+                {
+                    "name": "Pressure",
+                    "type": "gauge",
+                    "axisLine": {
+                        "lineStyle": {
+                            "width": 10,
+                        },
+                    },
+                    "progress": {"show": "true", "width": 10},
+                    "detail": {"valueAnimation": "true", "formatter": "{value}"},
+                    "data": [{"value": probability_value_0, "name": "Probabilité %"}],
+                }
+            ],
+        }
+
+        st_echarts(options=option, width="100%", key=0)
+
+        st.header(f'*Les données qui ont le plus influencé le calcul de la prédiction pour le client {client_id}*')
+        explain_plot(client_id, pred)   
