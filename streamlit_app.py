@@ -187,7 +187,7 @@ if st.button("Detection Result"):
 
     prediction = resp
 
-    pred = prediction["prediction"]
+#     pred = prediction["prediction"]
 
     probability_value_0 = round(prediction["probability_0"] * 100,2)
     probability_value_1 = round(prediction["probability_1"] * 100,2)
