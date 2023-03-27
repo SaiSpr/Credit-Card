@@ -52,7 +52,7 @@ clients_id = df_test_prod["SK_ID_CURR"].tolist()
 
 
 @app.post('/predict/{id}')
-def predict(data : fraudDetection):
+async def predict(id: int):
                                                                                                                                                                                                                                 
 #     features = np.array([[data.step, data.types, data.amount, data.oldbalanceorig, data.newbalanceorig, data.oldbalancedest, data.newbalancedest, data.isflaggedfraud]])
 #     model = joblib.load('credit_fraud.pkl')
