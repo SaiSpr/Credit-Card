@@ -160,7 +160,7 @@ if st.button("Detection Result"):
     Sender ID: {sender_name}
     Receiver ID: {receiver_name}
 
-    4. Sender Balance Before Transaction: {oldbalanceorg}$\n
+    4. Sender Balance Before Transaction: {oldbalanceorg}\n
 
                 """)
     
