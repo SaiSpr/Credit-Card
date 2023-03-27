@@ -27,6 +27,17 @@ Credit card fraud is a form of identity theft that involves an unauthorized taki
 
 
 
+
+data = {"name": "John Doe", "age": 30, "email": "johndoe@example.com"}
+url = "https://credit-card-production.up.railway.app/channel"
+
+response = re.post(url, data=data)
+
+if response.status_code == 200:
+    print("Data successfully sent to FastAPI app")
+else:
+    print(f"Error: {response.status_code}")
+
 def st_shap(plot, height=None):
     shap_html = f"<head>{shap.getjs()}</head><body>{plot.html()}</body>"
     components.html(shap_html, height=height)
