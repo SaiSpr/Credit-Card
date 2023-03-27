@@ -41,7 +41,7 @@ else:
     
 
 
-response = requests.get("https://credit-card-production.up.railway.app/flow")
+response = requests.get("https://credit-card-production.up.railway.app/json")
 
 if response.status_code == 200:
     data = response.json()
