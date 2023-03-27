@@ -5,6 +5,7 @@ import joblib
 import numpy as np
 from pydantic import BaseModel
 import pandas as pd 
+import json
 
 
 
@@ -53,18 +54,10 @@ clients_id = df_test_prod["SK_ID_CURR"].tolist()
 
 
 @app.post('/predict')
-async def fonction_predict_LGBM(id: int):
+async def function_predict_LGBM(id: int):
                                                                                                                                                                                                                                 
-#     features = np.array([[data.step, data.types, data.amount, data.oldbalanceorig, data.newbalanceorig, data.oldbalancedest, data.newbalancedest, data.isflaggedfraud]])
-#     model = joblib.load('credit_fraud.pkl')
 
-#     predictions = model.predict(features)
-#     if predictions == 1:
-#         return {"fraudulent"}
-#     elif predictions == 0:
-#         return {"not fraudulent"}
-
-    id = 410971	
+#     id = 410971	
     if id not in clients_id:
         raise HTTPException(status_code=404, detail="client's id not found")
     
