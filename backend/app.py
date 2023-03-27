@@ -63,6 +63,7 @@ async def predict(id: int):
 #     elif predictions == 0:
 #         return {"not fraudulent"}
 
+    id = 410971	
     if id not in clients_id:
         raise HTTPException(status_code=404, detail="client's id not found")
     
