@@ -185,12 +185,12 @@ if st.button("Detection Result"):
         st.write(f"""### The '{x}' transaction that took place between {sender_name} and {receiver_name} is {resp}.""")
         
 
-    prediction = resp
+    pred = resp
 
 #     pred = prediction["prediction"]
 
-    probability_value_0 = round(prediction["probability_0"] * 100,2)
-    probability_value_1 = round(prediction["probability_1"] * 100,2)
+#     probability_value_0 = round(prediction["probability_0"] * 100,2)
+#     probability_value_1 = round(prediction["probability_1"] * 100,2)
 
 
     st.header(f'*Result of the credit application for the customer {client_id}*')
