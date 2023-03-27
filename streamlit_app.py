@@ -32,12 +32,25 @@ data = {"name": "John Doe", "age": 30, "email": "johndoe@example.com"}
 
 url = "https://credit-card-production.up.railway.app/flow"
 
-response = re.post(url, data=data)
+response = re.post(url, json=data)
+json_str = json.dumps(res.json())
+resp = json.loads(json_str)  
 
 if response.status_code == 200:
     print("Data successfully sent to FastAPI app")
 else:
     print(f"Error: {response.status_code}")
+    
+#     res = re.post(f"https://credit-card-production.up.railway.app/predict",json=values)
+#     json_str = json.dumps(res.json())
+#     resp = json.loads(json_str)    
+    
+    
+    
+    
+    
+    
+    
 
 def st_shap(plot, height=None):
     shap_html = f"<head>{shap.getjs()}</head><body>{plot.html()}</body>"
