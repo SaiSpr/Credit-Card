@@ -180,7 +180,7 @@ if st.button("Detection Result"):
         st.write(f"""### The '{x}' transaction that took place between {sender_name} and {receiver_name} is {resp[0]}.""")
         
 
-prediction = client_prediction(client_id)
+prediction = resp
 
 pred = prediction["prediction"]
 
