@@ -1,6 +1,5 @@
 import streamlit as st
 import json
-import requests as re
 
 from streamlit_echarts import st_echarts
 import streamlit.components.v1 as components
@@ -32,18 +31,23 @@ data = {"name": "John Doe", "age": 30, "email": "johndoe@example.com"}
 
 url = "https://credit-card-production.up.railway.app/flow"
 
-response = re.post(url, json=data)
-json_str = json.dumps(res.json())
-resp = json.loads(json_str)  
+response = requests.post(url, json=data)
+  
 
 if response.status_code == 200:
     print("Data successfully sent to FastAPI app")
 else:
     print(f"Error: {response.status_code}")
     
-#     res = re.post(f"https://credit-card-production.up.railway.app/predict",json=values)
-#     json_str = json.dumps(res.json())
-#     resp = json.loads(json_str)    
+
+
+response = requests.get("https://credit-card-production.up.railway.app/flow")
+
+if response.status_code == 200:
+    data = response.json()
+    # do something with the data
+else:
+    print(f"Error: {response.status_code}")
     
     
     
