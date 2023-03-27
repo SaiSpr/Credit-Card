@@ -176,6 +176,9 @@ if st.button("Detection Result"):
     json_str = json.dumps(res.json())
     resp = json.loads(json_str)
     
+    st.write(f"""resp is {resp}""")
+    st.write(f"""res is {res}""")
+    
     if sender_name=='' or receiver_name == '':
         st.write("Error! Please input Transaction ID or Names of Sender and Receiver!")
     else:
