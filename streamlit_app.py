@@ -169,7 +169,9 @@ if st.button("Detection Result"):
     7. Recepient Balance After Transaction: {newbalancedest}$\n
     8. System Flag Fraud Status(Transaction amount greater than $200000): {isflaggedfraud}
                 """)
-
+    
+    id = client_id
+    st.write(f"""Client_id is {id}""")
     res = re.post(f"https://credit-card-production.up.railway.app/predict/{id}",json=values)
     json_str = json.dumps(res.json())
     resp = json.loads(json_str)
@@ -188,7 +190,7 @@ if st.button("Detection Result"):
     probability_value_1 = round(prediction["probability_1"] * 100,2)
 
 
-    st.header(f'*Résultat de la demande de crédit pour le client {client_id}*')
+    st.header(f'*Result of the credit application for the customer {client_id}*')
 
     st.write(pred)
     st.write(type(pred))
