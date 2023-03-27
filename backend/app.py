@@ -61,6 +61,15 @@ def process_data(name: str, age: int, email: str):
     return {"message": "Data received and processed"}
 
 
+from fastapi.responses import JSONResponse
+
+app = FastAPI()
+
+@app.get("/json")
+async def get_json_data():
+    data = {"foo": "bar", "baz": [1, 2, 3]}
+    return JSONResponse(content=data)
+
 
 
 @app.post('/predict')
