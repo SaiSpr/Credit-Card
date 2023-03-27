@@ -30,7 +30,7 @@ Credit card fraud is a form of identity theft that involves an unauthorized taki
 
 data = {"name": "John Doe", "age": 30, "email": "johndoe@example.com"}
 
-url = "https://credit-card-production.up.railway.app/predict"
+url = "https://credit-card-production.up.railway.app/flow"
 
 response = re.post(url, data=data)
 
