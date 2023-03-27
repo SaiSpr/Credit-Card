@@ -180,34 +180,34 @@ if st.button("Detection Result"):
         st.write(f"""### The '{x}' transaction that took place between {sender_name} and {receiver_name} is {resp[0]}.""")
         
 
-prediction = resp
+    prediction = resp
 
-pred = prediction["prediction"]
+    pred = prediction["prediction"]
 
-probability_value_0 = round(prediction["probability_0"] * 100,2)
-probability_value_1 = round(prediction["probability_1"] * 100,2)
+    probability_value_0 = round(prediction["probability_0"] * 100,2)
+    probability_value_1 = round(prediction["probability_1"] * 100,2)
 
 
-st.header(f'*Résultat de la demande de crédit pour le client {client_id}*')
+    st.header(f'*Résultat de la demande de crédit pour le client {client_id}*')
 
-st.write(pred)
-st.write(type(pred))
-if pred == 1:
-  st.error('Crédit Refusé')
-  option_1 = {
-        "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
-        "series": [
-            {
-                "name": "Pressure",
-                "type": "gauge",
-                "axisLine": {
-                    "lineStyle": {
-                        "width": 10,
+    st.write(pred)
+    st.write(type(pred))
+    if pred == 1:
+      st.error('Crédit Refusé')
+      option_1 = {
+            "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
+            "series": [
+                {
+                    "name": "Pressure",
+                    "type": "gauge",
+                    "axisLine": {
+                        "lineStyle": {
+                            "width": 10,
+                        },
                     },
-                },
-                "progress": {"show": "true", "width": 10},
-                "detail": {"valueAnimation": "true", "formatter": "{value}"},
-                "data": [{"value": probability_value_1, "name": "Probabilité %"}],
-            }
-        ],
-    }
+                    "progress": {"show": "true", "width": 10},
+                    "detail": {"valueAnimation": "true", "formatter": "{value}"},
+                    "data": [{"value": probability_value_1, "name": "Probabilité %"}],
+                }
+            ],
+        }
