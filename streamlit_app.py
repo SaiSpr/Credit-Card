@@ -172,7 +172,7 @@ if st.button("Detection Result"):
     
     id = client_id
     st.write(f"""Client_id is {id}""")
-    res = re.post(f"https://credit-card-production.up.railway.app/predict/{id}",json=values)
+    res = re.post(f"https://credit-card-production.up.railway.app/predict",json=values)
     json_str = json.dumps(res.json())
     resp = json.loads(json_str)
     
