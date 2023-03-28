@@ -48,28 +48,18 @@ isflaggedfraud = st.sidebar.selectbox("""Specify if this was flagged as Fraud by
 
 if st.button("Detection Result"):
     values = {
-    "step": step,
-    "types": types,
-    "amount": amount,
-    "oldbalanceorig": oldbalanceorg,
-    "newbalanceorig": newbalanceorg,
-    "oldbalancedest": oldbalancedest,
-    "newbalancedest": newbalancedest,
-    "isflaggedfraud": isflaggedfraud
+
+    "oldbalanceorig": oldbalanceorg
+
     }
 
 
     st.write(f"""### These are the transaction details:\n
     Sender ID: {sender_name}
     Receiver ID: {receiver_name}
-    1. Number of Hours it took to complete: {step}\n
-    2. Type of Transaction: {x}\n
-    3. Amount Sent: {amount}\n
-    4. Sender Previous Balance Before Transaction: {oldbalanceorg}\n
-    5. Sender New Balance After Transaction: {newbalanceorg}\n
-    6. Recepient Balance Before Transaction: {oldbalancedest}\n
-    7. Recepient Balance After Transaction: {newbalancedest}\n
-    8. System Flag Fraud Status: {isflaggedfraud}
+
+    1. Sender Previous Balance Before Transaction: {oldbalanceorg}\n
+
                 """)
 
     res = re.post(f"http://backend.docker:8000/predict/",json=values)
