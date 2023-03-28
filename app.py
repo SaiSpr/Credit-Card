@@ -85,9 +85,6 @@ def predict(data : fraudDetection):
 	
 
 
-
-
-
 @app.post("/flow")
 def flow(name: str, age: int, email: str):
     # do something with the data
