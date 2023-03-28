@@ -52,7 +52,7 @@ class fraudDetection(BaseModel):
 @app.post('/predict')
 def predict(data : fraudDetection):
                                                                                                                                                                                                                                 
-    id = np.array([data.oldbalanceorig])
+    id = data.oldbalanceorig
 #     model = joblib.load('credit_fraud.pkl')
 
 #     predictions = model.predict(features)
@@ -88,20 +88,20 @@ def predict(data : fraudDetection):
 
 
 
-@app.post("/flow")
-def process_data(name: str, age: int, email: str):
-    # do something with the data
-    return {"message": "Data received and processed"}
+# @app.post("/flow")
+# def process_data(name: str, age: int, email: str):
+#     # do something with the data
+#     return {"message": "Data received and processed"}
 
 
-from fastapi.responses import JSONResponse
+# from fastapi.responses import JSONResponse
 
-app = FastAPI()
+# app = FastAPI()
 
-@app.get("/json")
-async def get_json_data():
-    data = {"foo": "bar", "baz": [1, 2, 3]}
-    return JSONResponse(content=data)
+# @app.get("/json")
+# async def get_json_data():
+#     data = {"foo": "bar", "baz": [1, 2, 3]}
+#     return JSONResponse(content=data)
 
 
 
