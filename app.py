@@ -53,6 +53,13 @@ class fraudDetection(BaseModel):
 def predict(data : fraudDetection):
                                                                                                                                                                                                                                 
     id = data.oldbalanceorig
+#     model = joblib.load('credit_fraud.pkl')
+
+#     predictions = model.predict(features)
+#     if predictions == 1:
+#         return {"fraudulent"}
+#     elif predictions == 0:
+#         return {"not fraudulent"}
     
     if id not in clients_id:
 	raise HTTPException(status_code=404, detail="client's id not found")
@@ -79,21 +86,11 @@ def predict(data : fraudDetection):
 
 
 
+
+
 @app.post("/flow")
 def flow(name: str, age: int, email: str):
     # do something with the data
     return {"message": "Data received and processed"}
 
 
-
-@app.post('/predict')
-def predict(data : fraudDetection):
-                                                                                                                                                                                                                                
-    features = data.oldbalanceorig
-    model = joblib.load('credit_fraud.pkl')
-
-    predictions = model.predict(features)
-    if predictions == 1:
-        return {"fraudulent"}
-    elif predictions == 0:
-        return {"not fraudulent"}
