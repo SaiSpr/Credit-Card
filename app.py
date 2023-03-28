@@ -30,20 +30,15 @@ async def favicon():
     return FileResponse(favicon_path)
 																	
 class fraudDetection(BaseModel):
-    step:int
-    types:int
-    amount:float	
-    oldbalanceorig:float	
-    newbalanceorig:float	
-    oldbalancedest:float	
-    newbalancedest:float	
-    isflaggedfraud:float
+	
+    oldbalanceorig:int	
+
 
 
 @app.post('/predict')
 def predict(data : fraudDetection):
                                                                                                                                                                                                                                 
-    features = np.array([[data.step, data.types, data.amount, data.oldbalanceorig, data.newbalanceorig, data.oldbalancedest, data.newbalancedest, data.isflaggedfraud]])
+    features = data.oldbalanceorig
     model = joblib.load('credit_fraud.pkl')
 
     predictions = model.predict(features)
