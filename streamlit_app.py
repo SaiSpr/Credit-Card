@@ -15,7 +15,7 @@ plt.style.use('ggplot')
 
 st.title("Bank Loan Detection Web App")
 
-st.image("image.png")
+st.image("image.jpg")
 
 
 
