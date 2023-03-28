@@ -88,10 +88,10 @@ def predict(data : fraudDetection):
 
 
 
-# @app.post("/flow")
-# def process_data(name: str, age: int, email: str):
-#     # do something with the data
-#     return {"message": "Data received and processed"}
+@app.post("/flow")
+def flow(name: str, age: int, email: str):
+    # do something with the data
+    return {"message": "Data received and processed"}
 
 
 # from fastapi.responses import JSONResponse
