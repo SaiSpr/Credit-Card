@@ -73,7 +73,7 @@ if st.button("Detection Result"):
 
     data = {"name": "John Doe", "age": 30, "email": "johndoe@example.com"}
 
-    url = "http://backend.docker:8000//flow"
+    url = "http://backend.docker:8000/flow"
 
     response = requests.post(url, json=data)
   
@@ -85,7 +85,7 @@ if st.button("Detection Result"):
     
 
 
-    response = requests.get("http://backend.docker:8000//json")
+    response = requests.get("http://backend.docker:8000/json")
 
     if response.status_code == 200:
       data = response.json()
