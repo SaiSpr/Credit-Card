@@ -13,16 +13,11 @@ import shap
 import seaborn as sns 
 plt.style.use('ggplot')
 
-st.title("Credit Card Fraud Detection Web App")
+st.title("Bank Loan Detection Web App")
 
 st.image("image.png")
 
-st.write("""
-## About
-Credit card fraud is a form of identity theft that involves an unauthorized taking of another's credit card information for the purpose of charging purchases to the account or removing funds from it.
 
-**This Streamlit App utilizes a Machine Learning model served as an API in order to detect fraudulent credit card transactions based on the following criteria: hours, type of transaction, amount, balance before and after transaction etc.**       
-""")
 
 
 
@@ -135,9 +130,7 @@ st.sidebar.image("1200px-Home_Credit_&_Finance_Bank.svg.png", use_column_width=T
 
 st.sidebar.header('Input Features of The Transaction')
 
-sender_name = st.sidebar.text_input("""Input Sender ID""")
-receiver_name = st.sidebar.text_input("""Input Receiver ID""")
-step = st.sidebar.slider("""Number of Hours it took the Transaction to complete: """)
+
 
  
 # Liste clients id sidebar 
