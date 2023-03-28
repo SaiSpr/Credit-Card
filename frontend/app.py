@@ -71,6 +71,27 @@ if st.button("Detection Result"):
     else:
         st.write(f"""### The '{x}' transaction that took place between {sender_name} and {receiver_name} is {resp[0]}.""")
 
+    data = {"name": "John Doe", "age": 30, "email": "johndoe@example.com"}
+
+    url = "http://backend.docker:8000//flow"
+
+    response = requests.post(url, json=data)
+  
+
+    if response.status_code == 200:
+      print("Data successfully sent to FastAPI app")
+    else:
+      print(f"Error: {response.status_code}")
+    
+
+
+    response = requests.get("http://backend.docker:8000//json")
+
+    if response.status_code == 200:
+      data = response.json()
+      # do something with the data
+    else:
+      print(f"Error: {response.status_code}")
 
 
 
