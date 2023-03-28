@@ -112,7 +112,7 @@ df_train_rembourse = df_train_rembourse[cols_dashbord]
 
 
 # Titre 
-st.title("****Scoring crédit pour calculer la probabilité qu’un client rembourse son crédit****")
+st.title("****Calculating the probability that a customer will repay their credit or not****")
 
 
 
