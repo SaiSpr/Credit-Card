@@ -25,25 +25,7 @@ types = st.sidebar.subheader(f"""
                  2 for 'Debit' Transaction\n
                  3 for 'Payment' Transaction\n  
                  4 for 'Transfer' Transaction\n""")
-types = st.sidebar.selectbox("",(0,1,2,3,4))
-x = ''
-if types == 0:
-    x = 'Cash in'
-if types == 1:
-    x = 'Cash Out'
-if types == 2:
-    x = 'Debit'
-if types == 3:
-    x = 'Payment'
-if types == 4:
-    x =  'Transfer'
-    
-amount = st.sidebar.number_input("Amount in $",min_value=0, max_value=110000)
-oldbalanceorg = st.sidebar.number_input("""Original Balance Before Transaction was made""",min_value=0, max_value=110000)
-newbalanceorg= st.sidebar.number_input("""New Balance After Transaction was made""",min_value=0, max_value=110000)
-oldbalancedest= st.sidebar.number_input("""Old Balance""",min_value=0, max_value=110000)
-newbalancedest= st.sidebar.number_input("""New Balance""",min_value=0, max_value=110000)
-isflaggedfraud = st.sidebar.selectbox("""Specify if this was flagged as Fraud by your System: """,(0,1))
+
 
 
 if st.button("Detection Result"):
