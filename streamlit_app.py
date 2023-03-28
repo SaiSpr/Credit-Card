@@ -149,13 +149,13 @@ if st.button("Detection Result"):
     }
 
 
-    st.write(f"""### These are the transaction details:\n
-    Sender ID: {sender_name}
-    Receiver ID: {receiver_name}
+#     st.write(f"""### These are the transaction details:\n
+#     Sender ID: {sender_name}
+#     Receiver ID: {receiver_name}
 
-    4. Sender Balance Before Transaction: {oldbalanceorg}\n
+#     4. Sender Balance Before Transaction: {oldbalanceorg}\n
 
-                """)
+#                 """)
     
     id = oldbalanceorg
     st.write(f"""Client_id is {id}""")
